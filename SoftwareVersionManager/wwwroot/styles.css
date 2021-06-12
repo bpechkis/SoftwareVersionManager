@@ -1,0 +1,56 @@
+﻿body {
+    font-family: sans-serif;
+    color: #4f5959;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: block;
+    border-bottom: 2px solid #4f5959;
+    padding: 10px;
+}
+
+.version {
+    font-style: italic;
+}
+
+input {
+    border: 2px solid #4f5959;
+    background: #FFF;
+}
+
+form > * {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+    height: 30px;
+}
+
+.error {
+    border: 3px solid #ff0000;
+    color: #550000;
+    padding: 5px;
+}
+
+li.heading {
+    font-weight: bold;
+}
+@media screen and (min-width: 750px) {
+    body {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .version {
+        float: right;
+    }
+
+    form > * {
+        display: inline;
+        width: auto;
+    }
+}

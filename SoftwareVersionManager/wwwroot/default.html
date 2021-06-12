@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Software Version Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1>Software Version Manager</h1>
+    <div id="softwareSearch">
+        <form v-on:submit.prevent="searchVersions">
+            <label for="versionsOlderThan">Show Versions Older Than:</label>
+            <input type="text" name="versionsOlderThan" v-model="versionsOlderThan" placeholder="0.0.0" />
+            <input type="submit" value="Search" />
+        </form>
+        <div class="error" v-if="invalidFormat">Please enter your numeric version number in this format: [major].[minor].[patch].  (Minor and patch may be excluded.)</div>
+        <div class="error" v-if="error">{{ error }}</div>
+        <ul>
+            <li class="heading">
+                Application Name
+                <div class="version">
+                    Version #
+                </div>
+            </li>
+            <li v-if="softwares.length &gt; 0" v-for="software in softwares">
+                {{ software.name }}
+                <div class="version">{{ software.version }}</div>
+            </li>
+            <li v-if="loading">Loading...</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
